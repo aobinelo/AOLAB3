@@ -11,6 +11,8 @@ format:
 There are 2377343 data points and 30 variables
 
 ```{r}
+#| echo: false
+2 * 2
 met <- data.table::fread(file.path("~", "Downloads", "met_all.gz")) 
 dim(met)
 head(met)
@@ -35,12 +37,16 @@ summary(met$elev)
 ## Step 3
 
 ```{r}
+#| echo: false
+2 * 2
 str(met)
 ```
 
 ## Step 4
 
 ```{r}
+#| echo: false
+2 * 2
 summary(met[,8:13])
 table(met$year)
 table(met$hour)
@@ -59,6 +65,8 @@ summary(elev)
 ## Step 5
 
 ```{r}
+#| echo: false
+2 * 2
 
 mean(is.na(met$temp))
 #tell us whether or not a particular value is NA i.e. about 2.5% of temperature values are missing
@@ -121,6 +129,8 @@ tail(met_daily_dplyr)
 ## Step 6
 
 ```{r}
+#| echo: false
+2 * 2
 elev <- met[elev==max(elev), ]
 summary(elev)
 ```
@@ -128,6 +138,8 @@ summary(elev)
 ## Step 7
 
 ```{r}
+#| echo: false
+2 * 2
 hist(met$temp, col = "pink")
 boxplot(met$temp, col = "pink")
 #library('devtools')
@@ -186,6 +198,8 @@ abline(mod, col = "orange", lwd = 2)
 ```
 
 ```{r}
+#| echo: false
+2 * 2
 elev <- met[elev==max(elev), ]
 summary(elev)
 
@@ -196,6 +210,8 @@ leaflet(elev) %>%
 ```
 
 ```{r}
+#| echo: false
+2 * 2
 library(lubridate)
 elev$date <- with(elev, ymd_h(paste(year, month, day, hour, sep= ' ')))
 summary(elev$date)
